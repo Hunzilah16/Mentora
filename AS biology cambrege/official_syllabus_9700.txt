@@ -1,0 +1,225 @@
+CAMBRIDGE INTERNATIONAL AS & A LEVEL BIOLOGY (9700)
+SYLLABUS FOR 2025, 2026 AND 2027
+
+================================================================================
+AS LEVEL SUBJECT CONTENT (TOPICS 1 – 11)
+================================================================================
+
+TOPIC 1: CELL STRUCTURE
+--------------------------------------------------------------------------------
+1.1 The microscope in cell studies
+    1 make temporary preparations of cellular material suitable for viewing with a light microscope
+    2 draw cells from microscope slides and photomicrographs
+    3 calculate magnifications of images and actual sizes of specimens from drawings, photomicrographs and electron micrographs (scanning and transmission)
+    4 use an eyepiece graticule and stage micrometer scale to make measurements and use the appropriate units, millimetre (mm), micrometre (µm) and nanometre (nm)
+    5 define resolution and magnification and explain the differences between these terms, with reference to light microscopy and electron microscopy
+
+1.2 Cells as the basic units of living organisms
+    1 recognise organelles and other cell structures found in eukaryotic cells and outline their structures and functions, limited to:
+      • cell surface membrane
+      • nucleus, nuclear envelope and nucleolus
+      • rough endoplasmic reticulum
+      • smooth endoplasmic reticulum
+      • Golgi body (Golgi apparatus or Golgi complex)
+      • mitochondria (including the presence of small circular DNA)
+      • ribosomes (80S in the cytoplasm and 70S in chloroplasts and mitochondria)
+      • lysosomes
+      • centrioles and microtubules
+      • cilia
+      • microvilli
+      • chloroplasts (including the presence of small circular DNA)
+      • cell wall
+      • plasmodesmata
+      • large permanent vacuole and tonoplast of plant cells
+    2 describe and interpret photomicrographs, electron micrographs and drawings of typical plant and animal cells
+    3 compare the structure of typical plant and animal cells
+    4 state that cells use ATP from respiration for energy-requiring processes
+    5 outline key structural features of a prokaryotic cell as found in a typical bacterium, including:
+      • unicellular
+      • generally 1–5 µm diameter
+      • peptidoglycan cell walls
+      • circular DNA
+      • 70S ribosomes
+      • absence of organelles surrounded by double membranes
+    6 compare the structure of a prokaryotic cell as found in a typical bacterium with the structures of typical eukaryotic cells in plants and animals
+    7 state that all viruses are non-cellular structures with a nucleic acid core (either DNA or RNA) and a capsid made of protein, and that some viruses have an outer envelope made of phospholipids
+
+TOPIC 2: BIOLOGICAL MOLECULES
+--------------------------------------------------------------------------------
+2.1 Testing for biological molecules
+    1 describe and carry out the Benedict’s test for reducing sugars, the iodine test for starch, the emulsion test for lipids and the biuret test for proteins
+    2 describe and carry out a semi-quantitative Benedict’s test on a reducing sugar solution by standardising the test and using the results (time to first colour change or comparison to colour standards) to estimate the concentration
+    3 describe and carry out a test to identify the presence of non-reducing sugars, using acid hydrolysis and Benedict’s solution
+
+2.2 Carbohydrates and lipids
+    1 describe and draw the ring forms of α-glucose and β-glucose
+    2 define the terms monomer, polymer, macromolecule, monosaccharide, disaccharide and polysaccharide
+    3 state the role of covalent bonds in joining smaller molecules together to form polymers
+    4 state that glucose, fructose and maltose are reducing sugars and that sucrose is a non-reducing sugar
+    5 describe the formation of a glycosidic bond by condensation, with reference to disaccharides, including sucrose, and polysaccharides
+    6 describe the breakage of a glycosidic bond in polysaccharides and disaccharides by hydrolysis, with reference to the non-reducing sugar test
+    7 describe the molecular structure of the polysaccharides starch (amylose and amylopectin) and glycogen and relate their structures to their functions in living organisms
+    8 describe the molecular structure of the polysaccharide cellulose and outline how the arrangement of cellulose molecules contributes to the function of plant cell walls
+    9 state that triglycerides are non-polar hydrophobic molecules and describe the molecular structure of triglycerides with reference to fatty acids (saturated and unsaturated), glycerol and the formation of ester bonds
+    10 relate the molecular structure of triglycerides to their functions in living organisms
+    11 describe the molecular structure of phospholipids with reference to their hydrophilic (polar) phosphate heads and hydrophobic (non-polar) fatty acid tails
+
+2.3 Proteins
+    1 describe and draw the general structure of an amino acid and the formation and breakage of a peptide bond
+    2 explain the meaning of the terms primary structure, secondary structure, tertiary structure and quaternary structure of proteins
+    3 describe the types of interaction that hold protein molecules in shape:
+      • hydrophobic interactions
+      • hydrogen bonding
+      • ionic bonding
+      • covalent bonding, including disulfide bonds
+    4 state that globular proteins are generally soluble and have physiological roles and fibrous proteins are generally insoluble and have structural roles
+    5 describe the structure of a molecule of haemoglobin as an example of a globular protein, including the formation of its quaternary structure from two alpha (α) chains (α–globin), two beta (β) chains (β–globin) and a haem group
+    6 relate the structure of haemoglobin to its function, including the importance of iron in the haem group
+    7 describe the structure of a molecule of collagen as an example of a fibrous protein, and the arrangement of collagen molecules to form collagen fibres
+    8 relate the structures of collagen molecules and collagen fibres to their function
+
+2.4 Water
+    1 explain how hydrogen bonding occurs between water molecules and relate the properties of water to its roles in living organisms, limited to solvent action, high specific heat capacity and latent heat of vaporisation
+
+TOPIC 3: ENZYMES
+--------------------------------------------------------------------------------
+3.1 Mode of action of enzymes
+    1 state that enzymes are globular proteins that catalyse reactions inside cells (intracellular enzymes) or are secreted to catalyse reactions outside cells (extracellular enzymes)
+    2 explain the mode of action of enzymes in terms of an active site, enzyme–substrate complex, lowering of activation energy and enzyme specificity, including the lock-and-key hypothesis and the induced-fit hypothesis
+    3 investigate the progress of enzyme-catalysed reactions by measuring rates of formation of products using catalase and rates of disappearance of substrate using amylase
+    4 outline the use of a colorimeter for measuring the progress of enzyme-catalysed reactions that involve colour changes
+
+3.2 Factors that affect enzyme action
+    1 investigate and explain the effects of the following factors on the rate of enzyme-catalysed reactions: temperature, pH (using buffer solutions), enzyme concentration, substrate concentration, inhibitor concentration
+    2 explain that the maximum rate of reaction (Vmax) is used to derive the Michaelis–Menten constant (Km), which is used to compare the affinity of different enzymes for their substrates
+    3 explain the effects of reversible inhibitors, both competitive and non-competitive, on enzyme activity
+    4 investigate the difference in activity between an enzyme immobilised in alginate and the same enzyme free in solution, and state the advantages of using immobilised enzymes
+
+TOPIC 4: CELL MEMBRANES AND TRANSPORT
+--------------------------------------------------------------------------------
+4.1 Fluid mosaic membranes
+    1 describe the fluid mosaic model of membrane structure with reference to hydrophobic and hydrophilic interactions
+    2 describe the arrangement of cholesterol, glycolipids and glycoproteins
+    3 describe the roles of phospholipids, cholesterol, glycolipids, proteins and glycoproteins (stability, fluidity, permeability, transport, cell signalling, cell recognition)
+    4 outline the main stages in cell signalling (secretion, transport of ligands, binding to receptors)
+
+4.2 Movement into and out of cells
+    1 describe and explain simple diffusion, facilitated diffusion, osmosis, active transport, endocytosis and exocytosis
+    2 investigate simple diffusion and osmosis using plant tissue and dialysis (Visking) tubing and agar
+    3 surface area to volume ratios calculations
+    4 investigate effect of changing SA:V ratio on diffusion using agar blocks
+    5 estimate water potential of plant tissues
+    6 explain movement of water in terms of water potential on plant cells and animal cells
+
+TOPIC 5: THE MITOTIC CELL CYCLE
+--------------------------------------------------------------------------------
+5.1 Replication and division of nuclei and cells
+    1 describe the structure of a chromosome: DNA, histone proteins, sister chromatids, centromere, telomeres
+    2 importance of mitosis: growth, replacement, repair, asexual reproduction
+    3 mitotic cell cycle: interphase (G1, S, G2), mitosis, cytokinesis
+    4 role of telomeres in preventing gene loss
+    5 role of stem cells in cell replacement and tissue repair
+    6 uncontrolled cell division and tumour formation
+
+5.2 Chromosome behaviour in mitosis
+    1 behaviour of chromosomes, nuclear envelope, cell surface membrane and spindle during prophase, metaphase, anaphase, telophase
+    2 interpret photomicrographs, diagrams and identify main stages of mitosis
+
+TOPIC 6: NUCLEIC ACIDS AND PROTEIN SYNTHESIS
+--------------------------------------------------------------------------------
+6.1 Structure of nucleic acids and replication of DNA
+    1 structure of nucleotides, including ATP
+    2 purines (adenine, guanine) and pyrimidines (cytosine, thymine, uracil)
+    3 DNA double helix structure, antiparallel strands, complementary base pairing (C-G, A-T), phosphodiester bonds
+    4 semi-conservative replication of DNA, DNA polymerase, DNA ligase, leading and lagging strands
+    5 structure of RNA, using mRNA as example
+
+6.2 Protein synthesis
+    1 polypeptide coded for by a gene
+    2 universal genetic code: triplets, codons, start/stop codons
+    3 transcription and translation: RNA polymerase, mRNA, codons, tRNA, anticodons, ribosomes
+    4 transcribed/template strand vs non-transcribed strand
+    5 post-transcriptional modification in eukaryotes: introns removed, exons joined
+    6 gene mutations: substitution, deletion, insertion and effects on polypeptides
+
+TOPIC 7: TRANSPORT IN PLANTS
+--------------------------------------------------------------------------------
+7.1 Structure of transport tissues
+    1 plan diagrams of TS stems, roots, leaves of herbaceous dicots
+    2 distribution of xylem and phloem
+    3 xylem vessel elements, phloem sieve tube elements, companion cells
+    4 relationship between structure and function of transport cells
+
+7.2 Transport mechanisms
+    1 transport of dissolved mineral ions and organic compounds
+    2 transport of water: apoplast pathway and symplast pathway (endodermis, Casparian strip, suberin)
+    3 transpiration: evaporation from leaves and diffusion of water vapour
+    4 cohesion-tension theory and adhesion to cellulose
+    5 xerophytic leaf adaptations
+    6 translocation: sucrose and amino acids from sources to sinks
+    7 companion cell loading via proton pumps and cotransporters
+    8 mass flow hypothesis down hydrostatic pressure gradient
+
+TOPIC 8: TRANSPORT IN MAMMALS
+--------------------------------------------------------------------------------
+8.1 The circulatory system
+    1 closed double circulation: heart, blood vessels
+    2 main blood vessels: pulmonary artery, pulmonary vein, aorta, vena cava
+    3 structure of arteries, veins, capillaries in TS and LS
+    4 structural relationship to function of muscular arteries, elastic arteries, veins, capillaries
+    5 red blood cells, monocytes, neutrophils, lymphocytes
+    6 water roles in transport: solvent action, high specific heat capacity
+    7 tissue fluid formation in capillary networks and functions
+
+8.2 Transport of oxygen and carbon dioxide
+    1 transport of O2 and CO2: haemoglobin, carbonic anhydrase, haemoglobinic acid, carbaminohaemoglobin
+    2 chloride shift and its importance
+    3 role of plasma in CO2 transport
+    4 oxygen dissociation curve of adult haemoglobin
+    5 importance of dissociation curve at lungs and respiring tissues
+    6 Bohr shift and its importance
+
+8.3 The heart
+    1 external and internal structure of mammalian heart
+    2 differences in wall thickness: atria vs ventricles; left vs right ventricle
+    3 cardiac cycle: systole, diastole, pressure changes, valve operations
+    4 control of heartbeat: SAN, AVN, Purkyne tissue
+
+TOPIC 9: GAS EXCHANGE
+--------------------------------------------------------------------------------
+9.1 The gas exchange system
+    1 structure: lungs, trachea, bronchi, bronchioles, alveoli, capillary network
+    2 distribution of cartilage, ciliated epithelium, goblet cells, squamous epithelium, smooth muscle, capillaries
+    3 recognition in microscope slides, photomicrographs, electron micrographs
+    4 plan diagrams of TS trachea and bronchus walls
+    5 functions of ciliated cells, goblet cells, mucous glands
+    6 functions of cartilage, smooth muscle, elastic fibres, squamous epithelium
+    7 gas exchange at alveolar surface and adaptations
+
+TOPIC 10: INFECTIOUS DISEASES
+--------------------------------------------------------------------------------
+10.1 Infectious diseases
+    1 infectious diseases caused by pathogens and transmissible
+    2 pathogens: cholera (Vibrio cholerae), malaria (Plasmodium falciparum, vivax, ovale, malariae), TB (Mycobacterium tuberculosis, bovis), HIV/AIDS (HIV)
+    3 transmission methods of cholera, malaria, TB, HIV
+    4 prevention and control: biological, social, economic factors
+
+10.2 Antibiotics
+    1 penicillin action on bacterial cell wall synthesis; why antibiotics do not affect viruses
+    2 antibiotic resistance consequences and reduction measures
+
+TOPIC 11: IMMUNITY
+--------------------------------------------------------------------------------
+11.1 The immune system
+    1 phagocytes: neutrophils and macrophages, phagocytosis
+    2 antigens: self vs non-self
+    3 primary immune response: macrophages, B-lymphocytes, plasma cells, T-helper, T-killer cells
+    4 role of memory cells in secondary response and long-term immunity
+
+11.2 Antibodies and vaccination
+    1 antibody molecular structure and functions (variable, constant regions, disulfide bridges)
+    2 hybridoma method for monoclonal antibodies
+    3 diagnostic and therapeutic uses of monoclonal antibodies
+    4 active vs passive immunity; natural vs artificial immunity
+    5 vaccines and stimulation of long-term immunity
+    6 vaccination programmes and disease eradication/control
