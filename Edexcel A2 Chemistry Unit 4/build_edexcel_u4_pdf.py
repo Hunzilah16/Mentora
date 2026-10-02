@@ -4,7 +4,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import cm
 from reportlab.platypus import (
-    BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, PageBreak, Table, TableStyle, HRFlowable
+    BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, PageBreak, Table, TableStyle, HRFlowable, Image
 )
 from reportlab.lib import colors
 from reportlab.pdfbase import pdfmetrics
@@ -56,6 +56,18 @@ LIGHT_BG = colors.HexColor("#f8fafc")
 BORDER_COLOR = colors.HexColor("#cbd5e1")
 DARK_TEXT = colors.HexColor("#1e293b")
 WHITE = colors.HexColor("#ffffff")
+
+def make_answer_lines(marks, left_indent=0):
+    content_w = A4[0] - 3*cm - left_indent
+    lines_count = 2 if marks <= 1 else (4 if marks == 2 else (6 if marks == 3 else (8 if marks == 4 else 10)))
+    table_data = [[""] for _ in range(lines_count)]
+    t_lines = Table(table_data, colWidths=[content_w], rowHeights=[0.45*cm]*lines_count)
+    t_lines.setStyle(TableStyle([
+        ('LINEBELOW', (0,0), (-1,-1), 0.5, colors.HexColor("#cbd5e1")),
+        ('PADDING', (0,0), (-1,-1), 0),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2)
+    ]))
+    return t_lines
 
 def header_footer(canvas, doc):
     canvas.saveState()
@@ -222,13 +234,53 @@ def build_pdf_pack(out_filename, pack_meta, questions, faqs):
             story.append(Paragraph(q['stem'], q_text_style))
             story.append(Spacer(1, 0.1*cm))
             
-        # Diagram placeholder
-        if q.get('diagram'):
+        # Diagram rendering (check diagram_img, image, or matching keyword in diagram / title / stem)
+        img_file = q.get('diagram_img') or q.get('image')
+        if not img_file and (q.get('diagram') or q.get('stem') or q.get('title')):
+            search_str = f"{q.get('diagram', '')} {q.get('stem', '')} {q.get('title', '')}".lower()
+            if 'arrhenius' in search_str or 'ln k vs 1/t' in search_str:
+                img_file = os.path.join(os.path.dirname(__file__), 'diagrams', 'arrhenius_plot.png')
+            elif 'maxwell' in search_str or 'boltzmann' in search_str:
+                img_file = os.path.join(os.path.dirname(__file__), 'diagrams', 'maxwell_boltzmann.png')
+            elif 'rate-concentration' in search_str or 'rate vs' in search_str or 'zero order' in search_str or '1st order' in search_str:
+                img_file = os.path.join(os.path.dirname(__file__), 'diagrams', 'rate_conc_graphs.png')
+            elif 'born-haber' in search_str or 'lattice energy' in search_str:
+                img_file = os.path.join(os.path.dirname(__file__), 'diagrams', 'born_haber_nacl.png')
+            elif 'titration curve' in search_str or 'ph curve' in search_str:
+                img_file = os.path.join(os.path.dirname(__file__), 'diagrams', 'titration_curves.png')
+            elif 'nmr spectrum' in search_str or 'splitting pattern' in search_str:
+                img_file = os.path.join(os.path.dirname(__file__), 'diagrams', 'nmr_spectrum.png')
+            elif 'mass spectrum' in search_str or 'm/z' in search_str:
+                img_file = os.path.join(os.path.dirname(__file__), 'diagrams', 'mass_spectrum.png')
+
+        if img_file:
+            if not os.path.isabs(img_file):
+                img_file = os.path.join(os.path.dirname(__file__), img_file)
+            if os.path.exists(img_file):
+                img_w = 12 * cm
+                img_h = 5.5 * cm
+                if 'rate_conc' in img_file or 'nmr' in img_file:
+                    img_w = 14 * cm
+                    img_h = 5 * cm
+                elif 'arrhenius' in img_file or 'boltzmann' in img_file or 'titration' in img_file:
+                    img_w = 11 * cm
+                    img_h = 6 * cm
+                
+                img_flow = Image(img_file, width=img_w, height=img_h)
+                t_img = Table([[img_flow]], colWidths=[content_w])
+                t_img.setStyle(TableStyle([
+                    ('ALIGN', (0,0), (-1,-1), 'CENTER'),
+                    ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+                    ('PADDING', (0,0), (-1,-1), 2),
+                ]))
+                story.append(t_img)
+                story.append(Spacer(1, 0.15*cm))
+        elif q.get('diagram'):
             d_box = Table([[Paragraph(f"<i>[DIAGRAM / FIGURE: {q['diagram']}]</i>", ParagraphStyle('DiagText', fontName=FONT_NAMES['Italic'], fontSize=8.2, textColor=STEEL_BLUE, alignment=1))]], colWidths=[14*cm])
             d_box.setStyle(TableStyle([
                 ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#f8fafc")),
                 ('BOX', (0,0), (-1,-1), 1, colors.HexColor("#cbd5e1")),
-                ('PADDING', (0,0), (-1,-1), 10),
+                ('PADDING', (0,0), (-1,-1), 8),
                 ('ALIGN', (0,0), (-1,-1), 'CENTER')
             ]))
             story.append(d_box)
@@ -240,26 +292,40 @@ def build_pdf_pack(out_filename, pack_meta, questions, faqs):
                 story.append(Paragraph(opt, ParagraphStyle('MCQOptDirect', fontName=FONT_NAMES['Regular'], fontSize=8.5, textColor=DARK_TEXT, leading=12, leftIndent=12)))
             story.append(Spacer(1, 0.1*cm))
             
-        # Parts
-        for part in q.get('parts', []):
-            if isinstance(part, str):
-                story.append(Paragraph(part, q_text_style))
-            elif isinstance(part, dict):
-                part_label = f"<b>({part.get('label', '')})</b> " if part.get('label') else ""
-                marks_str = f" <b>[{part['marks']}]</b>" if part.get('marks') else ""
-                story.append(Paragraph(f"{part_label}{part.get('text', '')}{marks_str}", ParagraphStyle('PartText', fontName=FONT_NAMES['Regular'], fontSize=8.8, textColor=DARK_TEXT, leading=12.5, leftIndent=12)))
-                
-                if part.get('mcq_options'):
-                    for opt in part['mcq_options']:
-                        story.append(Paragraph(f"<b>{opt['key']}</b> {opt['text']}", ParagraphStyle('MCQOpt', fontName=FONT_NAMES['Regular'], fontSize=8.5, textColor=DARK_TEXT, leading=12, leftIndent=24)))
-                
-                for subpart in part.get('subparts', []):
-                    sub_label = f"<b>({subpart.get('label', '')})</b> " if subpart.get('label') else ""
-                    sub_marks = f" <b>[{subpart['marks']}]</b>" if subpart.get('marks') else ""
-                    story.append(Paragraph(f"{sub_label}{subpart.get('text', '')}{sub_marks}", ParagraphStyle('SubpartText', fontName=FONT_NAMES['Regular'], fontSize=8.5, textColor=DARK_TEXT, leading=12, leftIndent=24)))
+        # Parts and write-in answer lines
+        has_parts = bool(q.get('parts'))
+        if has_parts:
+            for part in q.get('parts', []):
+                if isinstance(part, str):
+                    story.append(Paragraph(part, q_text_style))
+                elif isinstance(part, dict):
+                    part_label = f"<b>({part.get('label', '')})</b> " if part.get('label') else ""
+                    part_marks = part.get('marks', 1)
+                    marks_str = f" <b>[{part_marks}]</b>" if part.get('marks') else ""
+                    story.append(Paragraph(f"{part_label}{part.get('text', '')}{marks_str}", ParagraphStyle('PartText', fontName=FONT_NAMES['Regular'], fontSize=8.8, textColor=DARK_TEXT, leading=12.5, leftIndent=12)))
                     
-            story.append(Spacer(1, 0.1*cm))
-            
+                    if part.get('mcq_options'):
+                        for opt in part['mcq_options']:
+                            story.append(Paragraph(f"<b>{opt['key']}</b> {opt['text']}", ParagraphStyle('MCQOpt', fontName=FONT_NAMES['Regular'], fontSize=8.5, textColor=DARK_TEXT, leading=12, leftIndent=24)))
+                    elif part.get('subparts'):
+                        for subpart in part.get('subparts', []):
+                            sub_label = f"<b>({subpart.get('label', '')})</b> " if subpart.get('label') else ""
+                            sub_marks_val = subpart.get('marks', 1)
+                            sub_marks = f" <b>[{sub_marks_val}]</b>" if subpart.get('marks') else ""
+                            story.append(Paragraph(f"{sub_label}{subpart.get('text', '')}{sub_marks}", ParagraphStyle('SubpartText', fontName=FONT_NAMES['Regular'], fontSize=8.5, textColor=DARK_TEXT, leading=12.5, leftIndent=24)))
+                            story.append(Spacer(1, 0.08*cm))
+                            story.append(make_answer_lines(sub_marks_val, left_indent=0.8*cm))
+                            story.append(Spacer(1, 0.1*cm))
+                    else:
+                        story.append(Spacer(1, 0.08*cm))
+                        story.append(make_answer_lines(part_marks, left_indent=0.4*cm))
+                        story.append(Spacer(1, 0.1*cm))
+        else:
+            if not q.get('options'):
+                story.append(Spacer(1, 0.08*cm))
+                story.append(make_answer_lines(q_marks, left_indent=0))
+                story.append(Spacer(1, 0.1*cm))
+
         story.append(Spacer(1, 0.25*cm))
         
     story.append(PageBreak())
