@@ -438,6 +438,134 @@ def gen_p11_q2_mass_spec_propanal():
     plt.close()
     return out_path
 
+def gen_p1_q26_second_order_rateconc():
+    fig, ax = plt.subplots(figsize=(6, 3.8), dpi=300)
+    conc = np.linspace(0, 1.0, 100)
+    rate = 2.5 * (conc**2)
+    
+    ax.plot(conc, rate, color=NAVY, linewidth=2.2, label='Rate = k[A]^2')
+    ax.set_title("Second Order Kinetics: Rate vs [A] Curve", fontsize=10, fontweight='bold', color=NAVY, pad=10)
+    ax.set_xlabel("[Reactant A] / mol dm-3", fontsize=9, fontweight='bold', color=DARK_GREY)
+    ax.set_ylabel("Initial Rate / mol dm-3 s-1", fontsize=9, fontweight='bold', color=DARK_GREY)
+    ax.set_xlim(0, 1.0)
+    ax.set_ylim(0, 2.8)
+    ax.annotate("Parabolic Curve\nDoubling [A] quadruples Rate (2^2 = 4)", xy=(0.6, 0.9), xytext=(0.15, 1.8),
+                arrowprops=dict(facecolor=CRIMSON, shrink=0.05, width=1, headwidth=5),
+                fontsize=8.5, fontweight='bold', color=CRIMSON)
+    ax.legend(fontsize=8, loc='upper left')
+    ax.grid(True, linestyle=':', alpha=0.5)
+    
+    plt.tight_layout()
+    out_path = os.path.join(DIAGRAM_DIR, "p1_q26_second_order_rateconc.png")
+    plt.savefig(out_path)
+    plt.close()
+    return out_path
+
+def gen_p1_q30_initial_rates_plot():
+    fig, ax = plt.subplots(figsize=(6, 3.8), dpi=300)
+    t = np.linspace(0, 200, 100)
+    c1 = 1.0 * np.exp(-0.01 * t)
+    c2 = 0.5 * np.exp(-0.01 * t)
+    c3 = 0.25 * np.exp(-0.01 * t)
+    
+    ax.plot(t, c1, color=NAVY, linewidth=2.0, label='Exp 1: [A]0 = 1.00 M')
+    ax.plot(t, c2, color=CRIMSON, linewidth=2.0, label='Exp 2: [A]0 = 0.50 M')
+    ax.plot(t, c3, color=STEEL_BLUE, linewidth=2.0, label='Exp 3: [A]0 = 0.25 M')
+    
+    # Tangents at t=0
+    ax.plot([0, 50], [1.0, 0.5], color=NAVY, linestyle='--', linewidth=1.2)
+    ax.plot([0, 50], [0.5, 0.25], color=CRIMSON, linestyle='--', linewidth=1.2)
+    ax.plot([0, 50], [0.25, 0.125], color=STEEL_BLUE, linestyle='--', linewidth=1.2)
+    
+    ax.set_title("Initial Rates Method: [Reactant] vs Time Curves", fontsize=10, fontweight='bold', color=NAVY, pad=10)
+    ax.set_xlabel("Time / s", fontsize=9, fontweight='bold', color=DARK_GREY)
+    ax.set_ylabel("[Reactant A] / mol dm-3", fontsize=9, fontweight='bold', color=DARK_GREY)
+    ax.set_xlim(0, 200)
+    ax.set_ylim(0, 1.1)
+    ax.legend(fontsize=8, loc='upper right')
+    ax.grid(True, linestyle=':', alpha=0.5)
+    
+    plt.tight_layout()
+    out_path = os.path.join(DIAGRAM_DIR, "p1_q30_initial_rates_plot.png")
+    plt.savefig(out_path)
+    plt.close()
+    return out_path
+
+def gen_p7_q1_chiral_enantiomer_3d():
+    fig, ax = plt.subplots(figsize=(6, 3.2), dpi=300)
+    ax.axis('off')
+    
+    ax.text(0.25, 0.85, "(R)-Lactic Acid", fontsize=10, fontweight='bold', color=NAVY, ha='center')
+    ax.text(0.75, 0.85, "(S)-Lactic Acid", fontsize=10, fontweight='bold', color=NAVY, ha='center')
+    
+    ax.plot([0.5, 0.5], [0.1, 0.9], color=CRIMSON, linestyle='--', linewidth=1.5)
+    ax.text(0.5, 0.93, "Mirror Plane", fontsize=8.5, fontweight='bold', color=CRIMSON, ha='center')
+    
+    # Structure 1
+    ax.text(0.25, 0.5, "COOH\n|\nCH3 — C* — OH\n|\nH", fontsize=10, fontweight='bold', color=DARK_GREY, ha='center', va='center')
+    # Structure 2
+    ax.text(0.75, 0.5, "COOH\n|\nHO — C* — CH3\n|\nH", fontsize=10, fontweight='bold', color=DARK_GREY, ha='center', va='center')
+    
+    ax.text(0.5, 0.05, "Non-Superimposable Mirror Image Enantiomers (Chiral Center *C)", fontsize=9, fontweight='bold', color=NAVY, ha='center')
+    
+    plt.tight_layout()
+    out_path = os.path.join(DIAGRAM_DIR, "p7_q1_chiral_enantiomer_3d.png")
+    plt.savefig(out_path)
+    plt.close()
+    return out_path
+
+def gen_p8_q1_carbonyl_addition_mechanism():
+    fig, ax = plt.subplots(figsize=(6.5, 3.2), dpi=300)
+    ax.axis('off')
+    
+    ax.text(0.15, 0.5, "R1\n \\\n  C = O: δ-\n /\nR2  δ+", fontsize=10, fontweight='bold', color=NAVY, ha='center', va='center')
+    ax.text(0.35, 0.3, "+ :NC-  (Nucleophile)", fontsize=9.5, fontweight='bold', color=CRIMSON, ha='center', va='center')
+    
+    ax.annotate("", xy=(0.22, 0.5), xytext=(0.32, 0.35),
+                arrowprops=dict(facecolor=CRIMSON, edgecolor=CRIMSON, arrowstyle="->", lw=1.5, connectionstyle="arc3,rad=-0.3"))
+    
+    ax.text(0.52, 0.5, "--->", fontsize=14, fontweight='bold', color=DARK_GREY, ha='center', va='center')
+    
+    ax.text(0.80, 0.5, "    R1  :O:-\n    |  /\nCN— C*\n    |\n    R2\n(Tetrahedral Intermediate)", fontsize=9.5, fontweight='bold', color=NAVY, ha='center', va='center')
+    
+    ax.set_title("Nucleophilic Addition Mechanism to Carbonyl C=O Group", fontsize=10, fontweight='bold', color=NAVY, pad=10)
+    
+    plt.tight_layout()
+    out_path = os.path.join(DIAGRAM_DIR, "p8_q1_carbonyl_addition_mechanism.png")
+    plt.savefig(out_path)
+    plt.close()
+    return out_path
+
+def gen_p9_q1_carboxylic_acid_dimer():
+    fig, ax = plt.subplots(figsize=(6, 3.0), dpi=300)
+    ax.axis('off')
+    
+    dimer_text = "R — C = O • • • H — O\n     |               |\n     O — H • • • O = C — R"
+    ax.text(0.5, 0.55, dimer_text, fontsize=11, fontweight='bold', color=NAVY, ha='center', va='center', family='monospace')
+    ax.text(0.5, 0.15, "Carboxylic Acid Dimerisation via 2 Intermolecular Hydrogen Bonds (• • •)", fontsize=8.5, fontweight='bold', color=CRIMSON, ha='center')
+    ax.set_title("Intermolecular Hydrogen Bonding in Carboxylic Acid Dimer", fontsize=10, fontweight='bold', color=NAVY, pad=8)
+    
+    plt.tight_layout()
+    out_path = os.path.join(DIAGRAM_DIR, "p9_q1_carboxylic_acid_dimer.png")
+    plt.savefig(out_path)
+    plt.close()
+    return out_path
+
+def gen_p10_q1_pet_polyester_repeat_unit():
+    fig, ax = plt.subplots(figsize=(6.5, 3.0), dpi=300)
+    ax.axis('off')
+    
+    pet_text = "— [ O — CH2 — CH2 — O — C(=O) — C6H4 — C(=O) ] — n"
+    ax.text(0.5, 0.55, pet_text, fontsize=10.5, fontweight='bold', color=NAVY, ha='center', va='center', family='monospace')
+    ax.text(0.5, 0.15, "Terylene / PET Repeat Unit Showing Polar Ester Linkages (-COO-)", fontsize=8.5, fontweight='bold', color=CRIMSON, ha='center')
+    ax.set_title("Repeat Unit Structure of Poly(ethylene terephthalate) PET", fontsize=10, fontweight='bold', color=NAVY, pad=8)
+    
+    plt.tight_layout()
+    out_path = os.path.join(DIAGRAM_DIR, "p10_q1_pet_polyester_repeat_unit.png")
+    plt.savefig(out_path)
+    plt.close()
+    return out_path
+
 def gen_all_diagrams():
     p1 = gen_p1_q1_mg_hcl()
     p2 = gen_p1_q2_propanone_i2()
@@ -452,7 +580,14 @@ def gen_all_diagrams():
     p11 = gen_p6_q15_titration_nh3_hcl()
     p12 = gen_p11_q1_nmr_ethyl_ethanoate()
     p13 = gen_p11_q2_mass_spec_propanal()
+    p14 = gen_p1_q26_second_order_rateconc()
+    p15 = gen_p1_q30_initial_rates_plot()
+    p16 = gen_p7_q1_chiral_enantiomer_3d()
+    p17 = gen_p8_q1_carbonyl_addition_mechanism()
+    p18 = gen_p9_q1_carboxylic_acid_dimer()
+    p19 = gen_p10_q1_pet_polyester_repeat_unit()
     print("All custom question-specific diagram PNGs generated successfully!")
 
 if __name__ == "__main__":
     gen_all_diagrams()
+
